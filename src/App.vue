@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <!-- router link to index -->
       <router-link to="/" class="navbar-brand"
-        ><div style="margin-left: 40px">THONGCHAI - 0.0.1</div></router-link
+        ><div style="margin-left: 40px">THONGCHA! - 0.0.1</div></router-link
       >
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
