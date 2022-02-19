@@ -42,30 +42,29 @@ jobs:
           name: Unit Test Results
           path: "${{ github.workspace }}/coverage/lcov-report/*"
 
-jobs:
   analyze:
-      name: SAST CodeQL
-      runs-on: ubuntu-latest
-      permissions:
-        actions: read
-        contents: read
-        security-events: write
+    name: SAST CodeQL
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
 
-      strategy:
-        fail-fast: false
-        matrix:
-          language: [ 'javascript' ]
-          # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python' ]
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["javascript"]
+        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python' ]
 
-      steps:
-        # Initializes the CodeQL tools for scanning.
-        - name: Initialize CodeQL
-          uses: github/codeql-action/init@v1
-          with:
-            languages: ${{ matrix.language }}
+    steps:
+      # Initializes the CodeQL tools for scanning.
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v1
+        with:
+          languages: ${{ matrix.language }}
 
-        - name: Autobuild
-          uses: github/codeql-action/autobuild@v1
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v1
 
-        - name: Perform CodeQL Analysis
-          uses: github/codeql-action/analyze@v1
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v1
