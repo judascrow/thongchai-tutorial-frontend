@@ -23,24 +23,24 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-    # steps:
-    #   - name: Setup node
-    #     uses: actions/setup-node@v2
-    #     with:
-    #       node-version: '14'
-    # steps:
-    #   - name: Install dependencies
-    #     run: npm install
-    # steps:
-    #   - name: Unit test
-    #     run: npm test
-    #   # for vuejs npm run test:unit
-    # steps:
-    #   - name: Upload Reports
-    #     uses: actions/upload-artifact@v2
-    #     with:
-    #       name: Unit Test Results
-    #       path: '${{ github.workspace }}/coverage/lcov-report/*'
+    steps:
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+    steps:
+      - name: Install dependencies
+        run: npm install
+    steps:
+      - name: Unit test
+        run: npm run test:unit
+      # for vuejs npm run test:unit
+    steps:
+      - name: Upload Reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: Unit Test Results
+          path: '${{ github.workspace }}/coverage/lcov-report/*'
     # steps:
     #   # Initializes the CodeQL tools for scanning.
     #   - name: Initialize CodeQL
@@ -67,3 +67,6 @@ jobs:
     #   #- run: |
     #   #   make bootstrap
     #   #   make release
+    # steps:
+    #   - name: Perform CodeQL Analysis
+    #     uses: github/codeql-action/analyze@v1
