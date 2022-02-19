@@ -45,6 +45,9 @@ jobs:
   analyze:
     name: SAST CodeQL
     runs-on: ubuntu-latest
+    environment:
+      name: dev
+      url: https://github.com/judascrow/thongchai-tutorial-frontend/security/code-scanning
     permissions:
       actions: read
       contents: read
